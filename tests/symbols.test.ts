@@ -42,17 +42,29 @@ const arr = [
       5: 'April',
     },
     b: [undefined, 'January', 'February', undefined, 'March', 'April'],
+  },
+  {
+    name: 'F',
+    a: {
+      0: 123,
+      length: 10,
+    },
+    b: [123],
   }
 ]
 
 arr.forEach(item => {
   test(`makeIterable ${item.name}`, () => {
     makeIterable(item.a)
+
     expect([...item.a as any]).toStrictEqual(item.b)
+
     const itemCopy: any[] = []
     for (const x of item.a as any) {
       itemCopy.push(x)
     }
+
     expect(itemCopy).toStrictEqual(item.b)
+    expect(Array.from(item.a as any)).toStrictEqual(item.b)
   })
 })

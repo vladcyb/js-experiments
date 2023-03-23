@@ -1,7 +1,5 @@
-import { NextValue } from "./types/NextValue"
-
 export function makeIterable(obj: any) {
-  obj[Symbol.iterator] = function () {
+  obj[Symbol.iterator] = function*() {
     const keys: string[] = Object.keys(this)
     let max = -1
     for (const key of keys) {
@@ -11,16 +9,8 @@ export function makeIterable(obj: any) {
       }
     }
 
-    let i = 0
-    const size = max + 1
-
-    return {
-      next: (): NextValue => {
-        return i === size ? { done: true } : {
-          value: this[i++],
-          done: false,
-        }
-      }
+    for (let i = 0; i < max + 1; i++) {
+      yield this[i]
     }
   }
 }
