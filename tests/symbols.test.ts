@@ -1,4 +1,4 @@
-import { makeIterable } from "../src/symbols";
+import { makeIterable } from '../src/symbols'
 
 const arr = [
   {
@@ -19,6 +19,7 @@ const arr = [
       1: 'February',
       3: 'March',
       2: 'April',
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       test() {},
     },
     b: ['January', 'February', 'April', 'March'],
@@ -50,7 +51,7 @@ const arr = [
       length: 10,
     },
     b: [123],
-  }
+  },
 ]
 
 arr.forEach(item => {
