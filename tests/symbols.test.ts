@@ -20,7 +20,7 @@ const arr = [
       3: 'March',
       2: 'April',
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      test() {},
+      testFunc() {},
     },
     b: ['January', 'February', 'April', 'March'],
   },

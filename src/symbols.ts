@@ -1,4 +1,8 @@
-export function makeIterable(obj: any) {
+/**
+ * Делает объект перебираемым
+ * @param obj
+ */
+export function makeIterable(obj: any) { // TODO: Убрать any
   obj[Symbol.iterator] = function*() {
     const keys: string[] = Object.keys(this)
     let max = -1
